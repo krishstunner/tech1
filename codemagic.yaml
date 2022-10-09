@@ -4,6 +4,5 @@ workflows:
       instance_type: mac_mini_m1
       environment:
         xcode: 13.4.1 
-       artifacts:
-        - "**/ios_tests.zip"      
+          
   
