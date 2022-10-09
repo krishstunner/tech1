@@ -1,18 +1,4 @@
 workflows:
-  android-workflow:
-    name: Android Workflow
-    instance_type: mac_mini_m1
-    max_build_duration: 120
-    environment:
-      flutter: stable
-      xcode: latest
-      cocoapods: default
-    artifacts:
-      - build/**/outputs/**/*.apk
-      - build/**/outputs/**/*.aab
-      - build/**/outputs/**/mapping.txt
-      - flutter_drive.log   
- 
   ios-workflow:
       name: iOS Workflow
       instance_type: mac_mini_m1
