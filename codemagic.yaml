@@ -10,7 +10,7 @@ workflows:
       groups:
         - SUresh
       vars:
-        PUBLIC_ENV_VAR: -
+        PUBLIC_ENV_VAR: ""
       flutter: stable
       xcode: latest
     cache:
