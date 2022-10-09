@@ -3,6 +3,10 @@ workflows:
     name: Android Workflow
     instance_type: mac_mini_m1
     max_build_duration: 120
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
@@ -14,6 +18,9 @@ workflows:
       instance_type: mac_mini_m1
       environment:
         xcode: 13.4.1
+        groups:
+          - ios_credentials
+          - gcloud_credentials
         artifacts:
         - "**/ios_tests.zip"      
   
