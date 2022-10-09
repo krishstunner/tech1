@@ -6,8 +6,6 @@ workflows:
     environment:
       groups:
         - google_credentials # <-- (Includes GCLOUD_KEY_FILE, GOOGLE_CREDENTIALS)
-      vars:
-        FIREBASE_PROJECT: "YOUR_FIREBASE_PROJECT_NAME" # <-- Put your Firebase Project Name here
       flutter: stable
       xcode: latest
       cocoapods: default
@@ -31,21 +29,7 @@ workflows:
           cd android
           ./gradlew app:assembleAndroidTest
           ./gradlew app:assembleDebug -Ptarget="$CM_BUILD_DIR/integration_test/app_test.dart"
-      - name: Run Firebase Test Lab tests
-        script: |
-          set -ex
-
-          echo $GCLOUD_KEY_FILE | base64 --decode > ./gcloud_key_file.json
-
-          gcloud auth activate-service-account --key-file=gcloud_key_file.json
-
-          gcloud --quiet config set project $FIREBASE_PROJECT
-
-          gcloud firebase test android run \
-            --type instrumentation \
-            --app build/app/outputs/apk/debug/app-debug.apk \
-            --test build/app/outputs/apk/androidTest/debug/app-debug-androidTest.apk \
-            --timeout 3m
+      
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
@@ -76,16 +60,8 @@ workflows:
           - ios_credentials
           - gcloud_credentials
         vars:
-          FIREBASE_PROJECT: "flutter-integration-tests"
           BUNDLE_ID: "io.codemagic.ftlflutter"
           TEST_BUNDLE_ID: "io.codemagic.ftlflutter.uitests.xctrunner"
-      scripts:
-        - name: Configure Firebase access
-          script: |
-            set -e
-            echo $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS > ./gcloud_key_file.json          
-            gcloud auth activate-service-account --key-file=gcloud_key_file.json
-            gcloud --quiet config set project $FIREBASE_PROJECT
 
         - keychain initialize
         - app-store-connect fetch-signing-files ${BUNDLE_ID} --create
