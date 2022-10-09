@@ -8,7 +8,7 @@ workflows:
     max_build_duration: 60
     environment:
       groups:
-        - SUresh
+        - flutter
       vars:
         PUBLIC_ENV_VAR: "a"
       flutter: stable
