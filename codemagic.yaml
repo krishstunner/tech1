@@ -8,7 +8,7 @@ workflows:
           PROFILES_HOME="$HOME/Library/MobileDevice/Provisioning Profiles"
           mkdir -p "$PROFILES_HOME"
           echo ${PROVISIONING_PROFILE?} | base64 --decode > "$PROFILES_HOME/$(uuidgen).mobileprovision"
-      - name: Add signing certificate
+      - name: MIICkDCCAXgCAQAwTTEnMCUGCSqGSIb3DQEJARYYcmtyaXNoMjYwODE5OTRAZ21haWwuY29tMRUwEwYDVQQpDAxrcmlzaHN0dW5uZXIxCzAJBgNVBAYTAklOMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlti/GbTgtzpv+1zM13aUpTtBKY8gWzhuSLeuacsn0p5EfFO5DMEWSyS5mn1/pTTi7IqPFo2lz8e2jhBkTaUHuhXKmQSuaMvPyrQhCX9jknww6VA8ROZ8pVhzc54QJRF551VkIqqdZ8lhpCAC+yYDQy4AiIZ46Rzb/uKvs6D47JV9U7ySjloi9/UKxIwJsnuQCyn6z6K/0r70QyQdh1Z7K42MWilY+zRj8VVLoK5KaZXhxecIQnCXNNunCtS8BkIM6Lng1eFi+0peusXixb+cRCWfjfhGNksRa0YS1qKqTU08CGv+2diDikV0emXcuVIQkHaLL0ofWvAO8zrBJrJ1IwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBQNDdWrdYsCBpeAtkSZDrz8E6hnMfXyDQX9Y7+JoFCHtd1xI3a4VTzL7ISHQUE6edq817uR6tdWFDNwfvGW4M3UM72oa4NztEsPyztaRlG3LVWYkGrEFDFlc88yYgPUYJId2uzLfFi4Re4mCiP4OSi0InZaOumgNxy9PhtKXEoYhWD4J74OH2cFruV6Ekbt/AFmlEt+7HqEPc3YmLzIzO2Vwle97zOCFFRY/YfTWsTGsSfnrxoaatzja/a1o4GtXSLKxIQFkW/EP5I0wN3mM5+txWSmpBTpHqRXnXI3IlqU3Nb11dijBWlzgfYta+fjicap8BpV4lNW0FS2Lqe8EtF        
         script: |
           set -e # exit on first failed command
 
