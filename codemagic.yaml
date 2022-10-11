@@ -2,6 +2,9 @@ workflows:
   my-workflow:
     scripts:
       - name: Add provisioning profiles
+      environments
+        groups:
+          -admin
         script: |
           set -e # exit on first failed command
 
