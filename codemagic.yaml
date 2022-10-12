@@ -83,11 +83,6 @@ workflows:
           # APP_STORE_CONNECT_PRIVATE_KEY <-- Put your App Store Connect Private Key here
         - certificate_credentials # <-- (Includes CERTIFICATE_PRIVATE_KEY - Put your Certificate Private Key here)
         - other
-      vars:
-        XCODE_WORKSPACE: "Runner.xcworkspace"
-        XCODE_SCHEME: "Runner"
-        BUNDLE_ID: "io.codemagic.flutteryaml" # <-- Put your bundle id here
-        APP_STORE_ID: 1111111111 # <-- Use the TestFlight Apple id number (An automatically generated ID assigned to your app) found under General > App Information > Apple ID.
       flutter: stable
       xcode: latest
       cocoapods: default
