@@ -82,7 +82,6 @@ workflows:
           # APP_STORE_CONNECT_KEY_IDENTIFIER <-- Put your App Store Connect Key Identifier here
           # APP_STORE_CONNECT_PRIVATE_KEY <-- Put your App Store Connect Private Key here
         - certificate_credentials # <-- (Includes CERTIFICATE_PRIVATE_KEY - Put your Certificate Private Key here)
-        - other
       flutter: stable
       xcode: latest
       cocoapods: default
